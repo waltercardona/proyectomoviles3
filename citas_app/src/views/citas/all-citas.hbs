@@ -1,0 +1,38 @@
+<div class="row">
+    {{#each citas}}
+        <div class="col-md-4">
+            <div class="card" id="card">
+                <div class="card-header" id="card-header">
+                    <h4 class="card-title d-flex justify-content-between align-items-center" id="h4" data-toggle="tooltip" data-placement="top" title="Edit">
+                        {{lastname}}, {{name}} <a href="/citas/edit/{{_id}}"><i class="fa fa-pencil"></i></a>
+                    </h4>
+                </div>
+                <div class="card-body" id="card-body">
+                    <h5>Identificación:</h5><p>{{id_number}}</p>
+                    <hr class="my-4">
+                    <h5>Nacimiento: {{birth}}</h5>
+                    <h5>Ciudad: {{city}}</h5>
+                    <h5>Barrio: {{neighborhood}}</h5>
+                    <h5>Celular: {{phone}}</h5>
+                    <hr class="my-4">
+                    <form action="/citas/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <script type="text/javascript">
+                            function ConfirmDelete(){
+                                let Respuesta = confirm("Are you sure you want to delete the Appointment?");
+                                if (Respuesta){
+                                    return true;
+                                } else{
+                                    return false;
+                                }
+                            }
+                        </script>
+                        <button type="submit" class="btn btn-danger btn-block btn-sm" onclick="return ConfirmDelete()" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

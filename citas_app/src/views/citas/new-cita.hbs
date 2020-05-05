@@ -1,0 +1,30 @@
+<div class="col-md-4 mx-auto">
+    <div class="card text-center">
+        <div class="card-header" id="">
+            <label for="">New Cita</label>
+        </div>
+        <div class="card-body" id="">
+            <form action="/citas/new-cita" method="POST">
+                <div class="form-group">
+                    <input type="number" name="id_number" class="form-control" placeholder="Cedula" required autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Nombres" required>
+                    <input type="text" name="lastname" class="form-control" placeholder="Apellidos" required>
+                    <br>
+                    <label for="">Fecha de Nacimiento</label>
+                    <input type="date" size="8" name="birth" class="form-control" placeholder="Fecha de Nacimiento" required>                    
+                    <input type="text" name="city" class="form-control" placeholder="Ciudad" required>
+                    <input type="text" name="neighborhood" class="form-control" placeholder="Barrio" required>
+                    <input type="number" min="3000000000" max="3999999999" name="phone" class="form-control" placeholder="Celular" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

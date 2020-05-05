@@ -1,0 +1,86 @@
+body {
+    background: #1488CC;
+}
+
+.logo {
+    width: 35%;
+}
+
+.card {
+    
+    background: rgb(189, 245, 213);
+}
+
+.card-header {
+    
+    text-align: center;
+    background-color: darkslategray;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.card-body {
+    
+    text-align: center;
+    background-color: rgba(143, 143, 197, 0.514);
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+label {
+    color: white;
+}
+
+#about {
+    background-color: rgb(197, 215, 247);
+    border-color: rgb(2, 35, 54);
+    border-style: solid;
+}
+
+#index {
+    background-color: rgb(213, 225, 247);
+    border-color: rgb(2, 35, 54);
+    border-style: solid;
+}
+
+h1 {
+    text-align: center;
+}
+
+#card {
+    
+    background: rgb(249, 250, 249);
+    border: solid;
+    border-color: rgb(86, 110, 95);
+}
+
+#card-header {
+    
+    text-align: center;
+    background-color: rgb(209, 212, 210);
+    border-bottom: solid;
+    border-color: rgb(199, 201, 199);
+}
+
+#card-body {
+    
+    text-align: center;
+    background-color: rgba(233, 235, 236, 0.514);
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+#h4 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+h5 {
+    text-align: center;
+    font-weight: bold;
+}
+
+#a {
+    font-weight: 350;
+    color: darkslategray;
+}
