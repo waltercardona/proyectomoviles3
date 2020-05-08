@@ -3,21 +3,21 @@ const axios = require('axios');
 /**
  * Carga de los parámetros genéricos del servicio RESTful
  */
-var host = 'http://localhost:4000';
-//var host = 'http://localhost/ApiRest/public';
+//let host = 'http://localhost:4000';
+let host = 'http://localhost/ApiRest/public';
 
 
 /**
  * Función encargada de recuperar todos los usuarios.
  */
 exports.loadCitas = function (userId, next) {
-	var path = 'api/citas';
+	let path = 'api/citas';
 
-	var paramsData = {
+	let paramsData = {
 		userId: userId
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'get',
@@ -36,14 +36,14 @@ exports.loadCitas = function (userId, next) {
 
 exports.loadCita = function(citaId, userId, next)
 {
-	var path = 'api/citas/edit';
+	let path = 'api/citas/edit';
 
-	var paramsData = {
+	let paramsData = {
 		citaId: citaId,
 		userId: userId
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'get',
@@ -64,14 +64,14 @@ exports.loadCita = function(citaId, userId, next)
  * Función encargada de recuperar los datos de un usuario a partir de su id.
  */
 exports.loadUser = function (email, password, next) {
-	var path = '/api/users/signin';
+	let path = '/api/users/signin';
 
-	var userData = {
+	let userData = {
 		email: email,
 		password: password
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'post',
@@ -92,9 +92,9 @@ exports.loadUser = function (email, password, next) {
  * Función encargada de modificar los datos del usuario.
  */
 exports.editCita = function (citaId, name, lastname, birth, city, neighborhood, phone, userId, next) {
-	var path = '/api/citas/edit/' + citaId;
+	let path = '/api/citas/edit/' + citaId;
 
-	var userData = {
+	let userData = {
 		name: name,
 		lastname: lastname,
 		birth: birth,
@@ -104,7 +104,7 @@ exports.editCita = function (citaId, name, lastname, birth, city, neighborhood, 
 		userId : userId
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'put',
@@ -125,13 +125,13 @@ exports.editCita = function (citaId, name, lastname, birth, city, neighborhood, 
  * Función encargada de eliminar un usuario por su id.
  */
 exports.deleteCita = function (citaId, userId, next) {
-	var path = '/api/citas/delete/' + citaId;
+	let path = '/api/citas/delete/' + citaId;
 
-	var paramsData = {
+	let paramsData = {
 		userId: userId
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'delete',
@@ -152,10 +152,10 @@ exports.deleteCita = function (citaId, userId, next) {
  * Función encargada de crear un nuevo usuario con los datos dados.
  */
 exports.createCita = function (id_number, name, lastname, birth, city, neighborhood, phone, userId, next) {
-	var path = '/api/citas/new-cita';
-	// var path = '/users?name=' + name + '&email=' + email;
+	let path = '/api/citas/new-cita';
+	// let path = '/users?name=' + name + '&email=' + email;
 
-	var userData = {
+	let userData = {
 		id_number: id_number,
 		name: name,
 		lastname: lastname,
@@ -166,7 +166,7 @@ exports.createCita = function (id_number, name, lastname, birth, city, neighborh
 		userId : userId
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'post',

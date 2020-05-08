@@ -3,21 +3,21 @@ const axios = require('axios');
 /**
  * Carga de los parámetros genéricos del servicio RESTful
  */
-var host = 'http://localhost:4000';
-//var host = 'http://localhost/ApiRest/public';
+//let host = 'http://localhost:4000';
+let host = 'http://localhost/ApiRest/public';
 
 /**
  * Función encargada de recuperar los datos de un usuario a partir de su id.
  */
 exports.loadUser = function (email, password, next) {
-	var path = '/api/users/signin';
+	let path = '/api/users/signin';
 
-	var userData = {
+	let userData = {
 		email: email,
 		password: password
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'post',
@@ -38,17 +38,17 @@ exports.loadUser = function (email, password, next) {
  * Función encargada de crear un nuevo usuario con los datos dados.
  */
 exports.createUser = function (name, email, password, confirm_password, next) {
-	var path = '/api/users/signup';
-	// var path = '/users?name=' + name + '&email=' + email;
+	let path = '/api/users/signup';
+	// let path = '/users?name=' + name + '&email=' + email;
 
-	var userData = {
+	let userData = {
 		name: name,
 		email: email,
 		password: password,
 		confirm_password: confirm_password
 	};
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'post',
@@ -66,9 +66,9 @@ exports.createUser = function (name, email, password, confirm_password, next) {
 };
 
 exports.searchUser = function (userId, next) {
-	var path = '/api/users/' + userId;
+	let path = '/api/users/' + userId;
 
-	var options = {
+	let options = {
 		baseURL: host,
 		url: path,
 		method: 'get'

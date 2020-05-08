@@ -1,0 +1,11 @@
+Acontinuacion menciono a las integrantes del preoyecto de la aplicacion de node y php
+*walter cardona
+*duberney rodriguez
+*juan david barrera
+*cesar mauricio alvarez
+
+Para la api de php se uso como framework slim para esto es necesario intallar composer en 
+el equipo ("Composer-Setup.exe ")despues de esto installar el compnente slim ("composer require slim/slim:3.*")
+y base de datos mysql con xampp
+
+para la api de node es necesario tener installado mongo para su base de datos.

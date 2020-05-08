@@ -26,9 +26,9 @@ $app->post('/api/users/signup', function(Request $request, Response $response){
 
         $error = false;
         if($resultado->rowCount() > 0){
-            $data = array('message'=> 'Usuario creado correctamente');
+            $data = array('message'=> 'User successfully created');
         }else{
-            $data = array('message'=> 'no existen usuarios en la  base de datos');
+            $data = array('message'=> 'there are no users in the database');
             $error = true;
         }
         
@@ -70,7 +70,7 @@ $app->post('/api/users/signin', function(Request $request, Response $response){
             $users = $resultado->fetchAll(PDO::FETCH_OBJ);
             $data = array('user'=> $users[0]);
         }else{
-            $data = array('message'=> 'Usuario no encontrado');
+            $data = array('message'=> 'User not found');
             $error = true;
         }
         
@@ -111,7 +111,7 @@ $app->get('/api/users/{id}', function(Request $request, Response $response){
             $users = $resultado->fetchAll(PDO::FETCH_OBJ);
             $data = array('user'=> $users[0]);
         }else{
-            $data = array('message'=> 'Usuario no encontrado');
+            $data = array('message'=> 'User not found');
             $error = true;
         }
         
@@ -191,7 +191,7 @@ $app->post('/api/citas/new-cita', function(Request $request, Response $response)
         $resultado->execute();
         $error = false; 
         if($resultado->rowCount() > 0){
-            $data = array('message'=> 'La cita ya existe');
+            $data = array('message'=> 'The appointment already exists');
             $error = true;
         }else{
             $sql = "INSERT INTO  citas (id_number, name, lastname, birth, city, neighborhood, phone, user) VALUES
@@ -207,9 +207,9 @@ $app->post('/api/citas/new-cita', function(Request $request, Response $response)
             $resultado->bindParam(':user', $userId);
             $resultado->execute();
             if($resultado->rowCount() > 0){
-                $data = array('message'=> 'Cita creada correctamente');
+                $data = array('message'=> 'Quote created successfully');
             }else{
-                $data = array('message'=> 'No se pudo crear la cita');
+                $data = array('message'=> 'Could not create appointment');
                 $error = true;
             }
         }
@@ -278,7 +278,7 @@ $app->get('/api/citas/edit', function(Request $request, Response $response){
             $cita = $resultado->fetchAll(PDO::FETCH_OBJ);
             if($cita[0]->user != $userId)
             {
-                $data = array('message'=> 'No puede editar esta cita');
+                $data = array('message'=> 'You cannot edit this quote');
                 $error = true;
             }
             else
@@ -287,7 +287,7 @@ $app->get('/api/citas/edit', function(Request $request, Response $response){
             }
         }else{
             $error = true;
-            $data = array('message'=> 'Cita no encontrada');
+            $data = array('message'=> 'Quote not found');
         }
         $resultado = null;
         $db = null;
@@ -324,7 +324,7 @@ $app->put('/api/citas/edit/{id}', function(Request $request, Response $response)
             $cita = $resultado->fetchAll(PDO::FETCH_OBJ);
             if($cita[0]->user != $userId)
             {
-                $data = array('message'=> 'Cita no autorizada');
+                $data = array('message'=> 'Unauthorized appointment');
                 $error = true;
             }
             else
@@ -350,17 +350,17 @@ $app->put('/api/citas/edit/{id}', function(Request $request, Response $response)
                 $resultado->execute();
 
                 if($resultado->rowCount() > 0){
-                    $data = array('message'=> 'Cita actualizada correctamente');
+                    $data = array('message'=> 'Quote updated correctly');
                 }
                 else{
-                    $data = array('message'=> 'No se pudo actualizar');
+                    $data = array('message'=> 'Could not update');
                     $error = true;
                 }
             }
         }
         else{
             $error = true;
-            $data = array('message'=> 'Cita no encontrada');
+            $data = array('message'=> 'Quote not found');
         }
 
         $resultado = null;
@@ -400,7 +400,7 @@ $app->delete('/api/citas/delete/{id}', function(Request $request, Response $resp
             $cita = $resultado->fetchAll(PDO::FETCH_OBJ);
             if($cita[0]->user != $userId)
             {
-                $data = array('message'=> 'No esta autorizado para elminar la cita');
+                $data = array('message'=> 'You are not authorized to remove the appointment');
                 $error = true;
             }
             else
@@ -409,16 +409,17 @@ $app->delete('/api/citas/delete/{id}', function(Request $request, Response $resp
                 $resultado = $db->prepare($sql);
                 $resultado->execute();
                 if($resultado->rowCount() > 0){
-                    $data = array('message'=> 'Cita eliminada correctamente');
+                    $data = array('message'=> 'Appointment removed successfully');
                 }else{
-                    $data = array('message'=> 'No se pudo eliminar la cita');
+                    $data = array('message'=> '
+                    Could not delete the appointment');
                     $error = true;
                 }
                 $data = array('cita'=> $cita);
             }
         }else{
             $error = true;
-            $data = array('message'=> 'Cita no encontrada');
+            $data = array('message'=> 'Quote not found');
         }
        
         $resultado = null;

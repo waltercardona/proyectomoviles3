@@ -11,7 +11,7 @@ citasCtrl.createNewCita = async (req, res) => {
 
     citaService.createCita(id_number, name, lastname, birth, city, neighborhood, phone, req.user._id, function (user, err) {
         if (err) {
-            req.flash('error_msg', 'Se ha producido un error. Contacte con el administrador');
+            req.flash('error_msg', 'An error has occurred. Contact the administrator');
             return res.redirect('/citas');
         } else {
             req.flash('success_msg', 'Cita Added Successfully!');
@@ -24,7 +24,7 @@ citasCtrl.renderCitas = async (req, res) => {
     // Sólo muestra las citas creadas por el usuario que inició sesión y las organiza por fecha de creación descendente.
     citaService.loadCitas(req.user._id, function (citas, err) {
         if (err) {
-            req.flash('error_msg', 'Se ha producido un error. Contacte con el administrador');
+            req.flash('error_msg', 'An error has occurred. Contact the administrator');
         } else {
             res.render('citas/all-citas', { citas });
         }
